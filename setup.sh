@@ -1,19 +1,17 @@
 #!/bin/bash
-. /opt/farm/scripts/init
-. /opt/farm/scripts/functions.dialog
-. /opt/farm/scripts/functions.install
-
 
 file="/etc/local/.config/smsapi.credentials"
 
 if [ ! -f $file ]; then
-	read -p "smsapi.pl username: " USERNAME
-	read -p "smsapi.pl password hash: " PASSWORD
-	read -p "smsapi.pl sender string: " FROM
+	if [ "$SMSAPI_USERNAME" = "" ]; then
+		read -p "smsapi.pl username: " SMSAPI_USERNAME
+		read -p "smsapi.pl password hash: " SMSAPI_PASSWORD
+		read -p "smsapi.pl sender string: " SMSAPI_FROM
+	fi
 
-	echo "SMSAPI_USERNAME=\"$USERNAME\"" >$file
-	echo "SMSAPI_PASSWORD=\"$PASSWORD\"" >>$file
-	echo "SMSAPI_FROM=\"$FROM\"" >>$file
+	echo "SMSAPI_USERNAME=\"$SMSAPI_USERNAME\"" >$file
+	echo "SMSAPI_PASSWORD=\"$SMSAPI_PASSWORD\"" >>$file
+	echo "SMSAPI_FROM=\"$SMSAPI_FROM\"" >>$file
 
 	chmod 0600 $file
 fi
