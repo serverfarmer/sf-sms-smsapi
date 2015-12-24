@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 file="/etc/local/.config/smsapi.credentials"
 
