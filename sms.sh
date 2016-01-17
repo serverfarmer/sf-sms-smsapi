@@ -12,4 +12,7 @@ elif [ ! -f $file ]; then
 fi
 
 . $file
-curl -sS -d "encoding=utf8&eco=0&username=$SMSAPI_USERNAME&password=$SMSAPI_PASSWORD" -d "to=$1" --data-urlencode "from=$SMSAPI_FROM" --data-urlencode "message=$2" $url
+
+if [ "$SMSAPI_USERNAME" != "" ]; then
+	curl -sS -d "encoding=utf8&eco=0&username=$SMSAPI_USERNAME&password=$SMSAPI_PASSWORD" -d "to=$1" --data-urlencode "from=$SMSAPI_FROM" --data-urlencode "message=$2" $url
+fi
