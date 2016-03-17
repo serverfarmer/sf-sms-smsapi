@@ -17,5 +17,5 @@ if [ ! -f $file ]; then
 fi
 
 if [ ! -f /usr/local/bin/sf-sms ]; then
-	ln -s /opt/sf-sms-smsapi/sms.sh /usr/local/bin/sf-sms
+	ln -s /opt/farm/ext/sms-smsapi/sms.sh /usr/local/bin/sf-sms
 fi
