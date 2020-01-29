@@ -15,7 +15,3 @@ if [ ! -f $file ]; then
 
 	chmod 0600 $file
 fi
-
-if [ ! -f /usr/local/bin/sf-sms ]; then
-	ln -s /opt/farm/ext/sms-smsapi/sms.sh /usr/local/bin/sf-sms
-fi
